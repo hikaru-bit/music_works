@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+
+<%= link_to post_path(post.id) do %>
+  <p>タイトル：<%= post.title %></p>
+<% end %>
+  <p>カテゴリー：<%= post.is_recruitment %></p>
+  <p>オンラインについて：<%= post.is_online %></p>
+
+<% end %>

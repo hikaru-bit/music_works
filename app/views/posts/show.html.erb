@@ -1,0 +1,15 @@
+<div class="post-body">
+  <p>タイトル：<%= @post.title %></p>
+  <p>カテゴリー：<%= @post.is_recruitment %></p>
+  <p>活動場所：<%= @post.state %></p>
+  <p>オンラインについて：<%= @post.is_online %></p>
+  <p>活動期間：<%= @post.period %></p>
+  <p>ギャラの有無：<%= @post.guarantee %></p>
+  <p>本文：<%= @post.text %></p>
+
+  <% if @post.user == current_user %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+
+</div>
+
