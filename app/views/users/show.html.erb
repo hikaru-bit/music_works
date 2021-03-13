@@ -1,0 +1,58 @@
+ <h2>User Info</h2>
+ <h4>名前</h4>
+ <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg" %>
+ <%= @user.name %>
+ <h4>プロフィール</h4>
+ <%= @user.introduction %><br>
+ <% if @user == current_user %>
+    <%= link_to "編集", edit_user_path(@user) %>
+  <% end %>
+
+  <div class="relative-post-evaluation">
+          <span>評価：</span>
+          <span id="star-rate-<%= @user.id %>"></span>
+          <script>
+            $('#star-rate-<%= @user.id %>').raty({
+              size: 36,
+              starOff: "<%= asset_path('star-off.png') %>",
+              starOn: "<%= asset_path('star-on.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              half: true,
+              readOnly: true,
+              score: <%= @user.evaluation %>,
+            });
+          </script>
+          <%= @user.evaluation %>
+        </div>
+
+
+
+   <h2>投稿</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+        <tr>
+          <th></th>
+          <th>タイトル</th>
+          <th>カテゴリー</th>
+          <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+           <% @posts.each do |post| %>
+           <tr>
+             <td>
+            <%= link_to user_path(@user.id) do %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg" %>
+            <% end %>
+            </td>
+            <td>
+            <%= link_to post_path(post.id) do %>
+             <p><%= post.title %></p>
+            <% end %>
+            </td>
+            <td><p><%= post.is_recruitment %></p></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+

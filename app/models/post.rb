@@ -7,4 +7,10 @@ class Post < ApplicationRecord
   enum period:[:期間の定めなし, :一ヶ月以内, :三ヶ月以内, :六ヶ月以内]
   enum guarantee:[:なし, :あり]
 
+  has_many :favorites, dependent: :destroy
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
 end
