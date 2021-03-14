@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
     resource :favorites, only: [:create, :destroy]
   end
-
   resources :users, only: [:show, :index, :edit, :update]
+  post "users/:id" => "users#review"
+
 end
