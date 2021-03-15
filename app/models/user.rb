@@ -10,4 +10,11 @@ class User < ApplicationRecord
   has_many :videos, dependent: :destroy
 
   attachment :profile_image
+
+  enum is_deleted: {Invalid: true, Available: false}
+
+    def active_for_authentication?
+        super && (self.is_deleted === "Invalid")
+    end
+  # 会員の退会(論理削除)
 end

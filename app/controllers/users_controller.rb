@@ -28,6 +28,19 @@ class UsersController < ApplicationController
       	redirect_to user_path(@user.id)
       end
 
+      def confirm
+        @user = current_user.id
+      end
+
+      def withdraw
+       @user = User.find(current_user.id)
+        #現在ログインしているユーザーを@userに格納
+        @user.update(is_deleted: "Available")
+        #updateで登録情報をInvalidに変更
+        reset_session
+        redirect_to root_path
+      end
+
     private
 
   def user_params
