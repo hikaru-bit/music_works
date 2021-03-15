@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 			redirect_to books_path
 		end
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
    private
   def post_params
-    params.require(:post).permit(:title, :is_recruitment, :state, :is_online, :period, :guarantee, :text)
+    params.require(:post).permit(:title, :is_recruitment, :state, :is_online, :period, :guarantee, :text, :video)
   end
 
 end

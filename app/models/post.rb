@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   enum guarantee:[:なし, :あり]
 
   has_many :favorites, dependent: :destroy
+  has_one_attached :video
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

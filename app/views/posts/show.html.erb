@@ -6,6 +6,10 @@
   <p>活動期間：<%= @post.period %></p>
   <p>ギャラの有無：<%= @post.guarantee %></p>
   <p>本文：<%= @post.text %></p>
+  <p>参考用動画・音源</p>
+  <% if @post.video.attached? %>
+  <video src="<%= rails_blob_path(@post.video) %>" type="video/mp4" controls></video>
+  <% end %>
 
   <% if @post.user == current_user %>
     <%= link_to "削除", post_path(@post), method: :delete %>
