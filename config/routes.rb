@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   patch "users/withdraw" => "users#withdraw"
   resources :users, only: [:show, :index, :edit, :update]
   post "users/:id" => "users#review"
+  resources :notifications, only: :index
 
 end

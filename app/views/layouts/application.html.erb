@@ -10,7 +10,15 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
+       <% if user_signed_in? %>
+      <li>
+        <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle" style="color: gold;"></i>
+        <% end %>
+      </li>
+      <li>
+          <%= link_to "通知", notifications_path, class: "btn-default" %>
+      </li>
       <li>
         <%= link_to '投稿フォーム', new_post_path %>
       </li>
@@ -23,6 +31,14 @@
       <li>
       <%= link_to '投稿一覧', posts_path %>
       </li>
+      <l1>
+        <%= form_tag posts_path, :method => 'get' do %>
+        <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "検索", :name => nil %>
+        <% end %>
+        </p>
+      </l1>
     <% else %>
       <li>
         <%= link_to "新規登録", new_user_registration_path %>
@@ -31,7 +47,7 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
       <li>
-        <%= link_to "music works", home_about_path %>
+        <%= link_to "music worksについて", home_about_path %>
       </li>
     <% end %>
 

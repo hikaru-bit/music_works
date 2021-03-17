@@ -8,10 +8,28 @@ class Post < ApplicationRecord
   enum guarantee:[:なし, :あり]
 
   has_many :favorites, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   has_one_attached :video
+
+  def create_notification_by(current_user)
+        notification = current_user.active_notifications.new(
+          post_id: id,
+          visited_id: user_id,
+          action: "favorite"
+        )
+        notification.save if notification.valid?
+  end
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  def self.search(search)
+      if search
+        Post.where(['content LIKE ?', "%#{search}%"])
+      else
+        Post.all
+      end
   end
 
 end
