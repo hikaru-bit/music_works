@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "users/confirm" => "users#confirm"
   patch "users/withdraw" => "users#withdraw"
   resources :users, only: [:show, :index, :edit, :update]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
   post "users/:id" => "users#review"
   resources :notifications, only: :index
 
