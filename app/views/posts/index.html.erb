@@ -7,12 +7,11 @@
 <%= link_to post_path(post.id) do %>
   <p>タイトル：<%= post.title %></p>
 <% end %>
+<% post.tags.each do |tag| %>
+   <p>タグ：#<%= tag.name %></p>
+<% end %>
   <p>カテゴリー：<%= post.is_recruitment %></p>
   <p>オンラインについて：<%= post.is_online %></p>
   <p> ♡<%= post.favorites.count %> いいね </p>
-
-<% post.tags.each do |tag| %>
-   <%= tag.name %>
-<% end %>
 
 <% end %>
