@@ -11,4 +11,8 @@
   <p>オンラインについて：<%= post.is_online %></p>
   <p> ♡<%= post.favorites.count %> いいね </p>
 
+<% post.tags.each do |tag| %>
+   <%= tag.name %>
+<% end %>
+
 <% end %>

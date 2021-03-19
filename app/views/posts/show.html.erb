@@ -4,6 +4,10 @@
   <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg" %>
   <% end %>
   <p>タイトル：<%= @post.title %></p>
+  <p>タグ：<% @post.tags.each do |tag| %>
+  　　 <%= tag.name %>
+　　<% end %>
+　</p>
   <p>カテゴリー：<%= @post.is_recruitment %></p>
   <p>活動場所：<%= @post.state %></p>
   <p>オンラインについて：<%= @post.is_online %></p>
