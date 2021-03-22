@@ -1,10 +1,11 @@
+<div class="card-list-containar py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
 <h1>新規投稿</h1>
 
 <%= form_with model:@post, local:true do |f| %>
-
   <h4>タイトル</h4>
   <%= f.text_field :title %>
-  
+
    <h4>タグ</h4>
   <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
   placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
@@ -30,6 +31,8 @@
   <h4>参考用動画</h4>
   <%= f.file_field :video %> <br>
 
-  <%= f.submit '投稿' %>
+  <%= f.submit '投稿', class: " btn btn-info" %>
 
 <% end %>
+</div>
+</div>

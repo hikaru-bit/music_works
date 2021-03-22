@@ -13,8 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 video {
     width: 50%;
+}
+
+.image_tag {
+    width: 50px;
+    height: 60px;
+}
+
+.image-logo{
+    padding-bottom: 20px;
+}
+
+header{
+    height: 100px;
+}
+
+footer{
+    height: 150px;
 }
