@@ -1,13 +1,17 @@
-<h3 class="text-center">通知</h3>
-    <%= link_to notifications_path, method: :delete do %>
-        <i class="fas fa-trash" style="color: black;"></i>
-        <h7 style="color: black;">全削除</h7>
+<div class="card-list-containar py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
+    <h3 class="text-center text-white">通知</h3>
+        <%= link_to notifications_path, method: :delete do %>
+            <i class="fas fa-trash" style="color: black;"></i>
+            <h7 style="color: black;">全削除</h7>
+        <% end %>
+        <hr>
+    <% if @notifications.exists? %>
+        <div class="users-index">
+            <%= render @notifications %>
+        </div>
+    <% else %>
+        <p>通知はありません</p>
     <% end %>
-    <hr>
-<% if @notifications.exists? %>
-    <div class="users-index">
-        <%= render @notifications %>
-    </div>
-<% else %>
-    <p>通知はありません</p>
-<% end %>
+ </div>
+</div>

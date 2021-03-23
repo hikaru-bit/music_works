@@ -1,3 +1,5 @@
+<div class="card-list-containar py-5">
+   <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
 <h2>User Info</h2>
         <%= form_with model:@user, local: true do |f| %>
           <h4>名前</h4>
@@ -11,4 +13,7 @@
           <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User"><br>
         <% end %>
 
- <%= link_to "退会する", users_confirm_path, {class: "btn btn-danger"} %>
+ <%= link_to "退会する", users_confirm_path, {class: "btn btn-danger w-25"} %>
+ </div>
+ </div>
+
