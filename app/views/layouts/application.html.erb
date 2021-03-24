@@ -27,18 +27,23 @@
               <i class="fa fa-circle" style="color: gold;"></i>
               <% end %>
             </li>
+            <i class="fas fa-envelope-square"></i>
             <li class="nav-item font-weight-bolder">
                 <%= link_to "通知", notifications_path, class: 'nav-link text-white' %>
             </li>
+            <i class="fas fa-plus-square"></i>
             <li class="nav-item font-weight-bolder">
               <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-white' %>
             </li>
+            <i class="fas fa-sign-out-alt"></i>
             <li class="nav-item font-weight-bolder">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
+            <i class="fas fa-user"></i>
             <li class="nav-item font-weight-bolder">
             <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-white' %>
             </li>
+            <i class="fas fa-book-open"></i>
             <li class="nav-item font-weight-bolder">
             <%= link_to '投稿一覧', posts_path, class: 'nav-link text-white' %>
             </li>
