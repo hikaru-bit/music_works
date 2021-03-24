@@ -27,34 +27,34 @@
               <i class="fa fa-circle" style="color: gold;"></i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
                 <%= link_to "通知", notifications_path, class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
               <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
             <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
             <%= link_to '投稿一覧', posts_path, class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
               <%= form_tag posts_path, :method => 'get' do %>
               <p>
               <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "検索", :name => nil, class: " btn btn-info" %>
+              <%= submit_tag "検索", :name => nil, class: "btn btn-secondary font-weight-bolder" %>
               <% end %>
               </p>
             </l1>
             <% else %>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
               <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item font-weight-bolder">
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
             </li>
           <% end %>
@@ -70,7 +70,7 @@
     <footer class="bg-info text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-4 font-weight-bold">
             <p>音楽活動がしたい者同士でつながるSNS</p>
           </div>
           <div class="col-md-8">

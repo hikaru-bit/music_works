@@ -27,6 +27,12 @@ video {
     height: 60px;
 }
 
+.back-image{
+    font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
 .back-image-text{
     padding: 80px 0 0 100px;
     font-size: 30px;
@@ -50,4 +56,17 @@ footer{
 
 .session-form{
     padding: 30px 0 0 30px;
+}
+
+.post-button{
+    width: 50%;
+}
+
+.title-area{
+    width: 50%;
+}
+
+.content-area{
+    height: 170px;
+    width: 50%;
 }
