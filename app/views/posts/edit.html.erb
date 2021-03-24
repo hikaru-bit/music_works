@@ -1,7 +1,7 @@
 <div class="card-list-containar py-5">
     <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-      <h1>編集</h1>
-
+      <h1 class="font-weight-bold mx-auto mt-3 ">編集</h1>
+ <div class="container font-weight-bold pt-3 pl-5">
       <%= form_with model:@post, local:true do |f| %>
 
         <h4>タイトル</h4>
@@ -28,8 +28,9 @@
 
         <h4>本文</h4>
         <%= f.text_area :text %>
+        </div>
 
-        <%= f.submit '編集' %>
+        <%= f.submit '更新する', class: "post-button btn btn-info mx-auto my-4 d-block" %>
 
       <% end %>
 </div>

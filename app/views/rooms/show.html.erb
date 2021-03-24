@@ -1,9 +1,12 @@
+<div class="card-list-containar py-5">
+ <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
+  <div class="container ml-3 mt-3 mb-3">
 <div class="left-button">
-  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
+  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link text-white" %>
 </div>
-<h4 class="rooms-title">チャットメンバー</h4>
+<h4 class="rooms-title font-weight-bold">チャットメンバー</h4>
 <% @entries.each do |e| %>
-  <div class="user-name">
+  <div class="user-name mb-4">
   <strong>
       <a class="rooms-user-link" href="/users/<%= e.user.id %>">
         <%= e.user.name %>さん
@@ -20,7 +23,7 @@
         <div class="chat-box">
           <div class="chat-face">
           </div>
-          <div class="chat-hukidashi"> <strong><%= m.message %></strong> <br>
+          <div class="chat-hukidashi mb-2"> <strong><%= m.message %></strong> <br>
             <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
           </div>
         </div>
@@ -31,7 +34,10 @@
     <%= form_for @message do |f| %>
       <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "送信",class: 'form-submit'%>
+          <%= f.submit "送信",class: 'form-submit btn btn-info'%>
     <% end %>
   </div>
+</div>
+</div>
+</div>
 </div>

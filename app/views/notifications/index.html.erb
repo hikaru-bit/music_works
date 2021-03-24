@@ -1,6 +1,7 @@
 <div class="card-list-containar py-5">
   <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-    <h3 class="text-center text-white">通知</h3>
+    <h3 class="text-center text-white mt-3">通知</h3>
+     <div class="ml-3 mb-3">
         <%= link_to notifications_path, method: :delete do %>
             <i class="fas fa-trash" style="color: black;"></i>
             <h7 style="color: black;">全削除</h7>
@@ -13,5 +14,6 @@
     <% else %>
         <p>通知はありません</p>
     <% end %>
+     </div>
  </div>
 </div>
