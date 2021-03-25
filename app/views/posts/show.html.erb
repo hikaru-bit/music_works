@@ -1,45 +1,45 @@
   <div class="card-list-containar py-5">
     <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-    <div class="container pt-3 pl-5 font-weight-bold">
-  <p>投稿者：<%= @post.user.name %></p>
-  <%= link_to user_path(@post.user.id) do %>
-  <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg" %>
-  <% end %>
-  <p>タイトル：<%= @post.title %></p>
-  <% @post.tags.each do |tag| %>
-   <p>タグ：#<%= tag.name %></p>
-  <% end %>
-  <p>カテゴリー：<%= @post.is_recruitment %></p>
-  <p>活動場所：<%= @post.state %></p>
-  <p>オンラインについて：<%= @post.is_online %></p>
-  <p>活動期間：<%= @post.period %></p>
-  <p>ギャラの有無：<%= @post.guarantee %></p>
-  <p>本文：<%= @post.text %></p>
-  <p>参考用動画・音源</p>
-  <% if @post.video.attached? %>
-  <video src="<%= rails_blob_path(@post.video) %>" type="video/mp4" controls></video>
-  <% end %>
+      <div class="container pt-3 pl-5 font-weight-bold">
+        <p>投稿者：<%= @post.user.name %></p>
+        <%= link_to user_path(@post.user.id) do %>
+        <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg" %>
+        <% end %>
+        <p>タイトル：<%= @post.title %></p>
+        <% @post.tags.each do |tag| %>
+         <p>タグ：#<%= tag.name %></p>
+        <% end %>
+        <p>カテゴリー：<%= @post.is_recruitment %></p>
+        <p>活動場所：<%= @post.state %></p>
+        <p>オンラインについて：<%= @post.is_online %></p>
+        <p>活動期間：<%= @post.period %></p>
+        <p>ギャラの有無：<%= @post.guarantee %></p>
+        <p>本文：<%= @post.text %></p>
+        <p>参考用動画・音源</p>
+        <% if @post.video.attached? %>
+        <video src="<%= rails_blob_path(@post.video) %>" type="video/mp4" controls></video>
+        <% end %>
 
-  <% if @post.user == current_user %>
-  　<%= link_to "編集する", edit_post_path(@post), class: "btn btn-primary" %><br>
-    <%= link_to "削除する", post_path(@post), method: :delete, class: "btn btn-danger mb-2" %>
-  <% end %>
+        <% if @post.user == current_user %>
+        　<%= link_to "編集する", edit_post_path(@post), class: "btn btn-primary" %><br>
+          <%= link_to "削除する", post_path(@post), method: :delete, class: "btn btn-danger mb-2" %>
+        <% end %>
 
-  <div id="post_<%= @post.id %>">
-    <%= render "favorites/favorites-btn", post: @post %>
-  </div>
-  <% unless @user.id == current_user.id %>
-          <% if @isRoom == true %>
-            <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-          <% else %>
-            <%= form_for @room do |f| %>
-              <%= fields_for @entry do |e| %>
-                <%= e.hidden_field :user_id, value: @user.id %>
+        <div id="post_<%= @post.id %>">
+          <%= render "favorites/favorites-btn", post: @post %>
+        </div>
+          <% unless @user.id == current_user.id %>
+            <% if @isRoom == true %>
+              <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg mx-auto d-block">チャットへ</a>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, value: @user.id %>
+                <% end %>
+                <%= f.submit "このユーザーへ連絡する", class:"btn btn-primary btn-lg user-show-chat mx-auto d-block"%>
               <% end %>
-              <%= f.submit "このユーザーへ連絡する", class:"btn btn-primary btn-lg user-show-chat"%>
             <% end %>
           <% end %>
-        <% end %>
-  </div>
-  </div>
+      </div>
+    </div>
   </div>
