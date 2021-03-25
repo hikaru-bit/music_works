@@ -8,32 +8,35 @@
        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpg', fallback: "no_image.jpg", class: "w-30" %>
        <h4>プロフィール：<%= @user.introduction %></h4>
      </div>
- <% @users.each do |user| %>
   <div class="relative-post-evaluation ml-5">
+   <% if @user == current_user %>
+      <span>あなたに対する評価：</span>
+      <% else %>
       <span>このユーザーに対する評価：</span>
-      <span id="star-rate-<%= user.id %>"></span>
+    <% end %>
+      <span id="star-rate-<%= @user.id %>"></span>
       <script>
-        if ($('#star-rate-<%= user.id %> img').length === 0) {
-          $('#star-rate-<%= user.id %>').raty({
+        if ($('#star-rate-<%= @user.id %> img').length === 0) {
+          $('#star-rate-<%= @user.id %>').raty({
             size: 36,
             starOff: "<%= asset_path('star-off.png') %>",
             starOn: "<%= asset_path('star-on.png') %>",
             starHalf: "<%= asset_path('star-half.png') %>",
             half: true,
             readOnly: true,
-            score: <%= user.evaluation %>,
+            score: <%= @user.evaluation %>,
           });
         }
       </script>
-      <%= user.evaluation %>
+      <%= @user.evaluation %>
     </div>
-  <% end %>
 
   <div class="ml-5">
  <% if @user == current_user %>
     <%= link_to "編集する", edit_user_path(@user), class: " btn btn-primary" %>
   <% end %>
 
+  <% unless @user == current_user %>
     <%= form_with model: @user, url: user_path, method: :post,local: true do |f| %>
       <div class="field" id="star">
         <%= f.label :evaluation, "星評価：" %>
@@ -55,6 +58,7 @@
         <% end %>
        </div>
     </div>
+    <% end %>
   </div>
 
    <h2 class="font-weight-bold mx-auto">投稿一覧</h2>
