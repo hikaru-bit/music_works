@@ -1,15 +1,15 @@
 <div class="card-list-containar py-5">
   <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-        <h2 class="font-weight-bold mt-3 mx-auto">ユーザー情報</h2>
+        <h2 class="font-weight-bold mt-3 mx-auto"><i class="fas fa-user pr-2" style="top:0px"></i>ユーザー情報</h2>
              <div class="container ml-3 mt-3 mb-3">
                 <%= form_with model:@user, local: true do |f| %>
-                  <h4>名前</h4>
+                  <h4>■名前</h4>
                   <%= f.text_field :name %>
 
-                  <h4>プロフィール画像</h4>
+                  <h4>■プロフィール画像</h4>
                   <%= f.attachment_field :profile_image %>
 
-                  <h4>Introduction</h4>
+                  <h4>■プロフィール</h4>
                   <%= f.text_area :introduction %><br>
                   <input type="submit" name="commit" value="更新する" class="btn btn-info w-25 mb-2" data-disable-with="更新する"><br>
                 <% end %>

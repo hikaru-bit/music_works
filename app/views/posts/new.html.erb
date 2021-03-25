@@ -1,50 +1,50 @@
 <div class="card-list-containar py-5">
   <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-<h1 class="pt-3 mx-auto font-weight-bold">投稿を作成</h1>
+<h1 class="pt-3 mx-auto font-weight-bold"><i class="fas fa-plus-square pr-2" style="top:0px"></i>投稿を作成</h1>
 
 <%= form_with model:@post, local:true do |f| %>
-  <h5 class="font-weight-bold pl-5">タイトル</h5>
+  <h5 class="font-weight-bold pl-5">■タイトル</h5>
   <div class="pl-5">
     <%= f.text_field :title, class: "title-area" %>
   </div>
 
-   <h5 class="font-weight-bold pt-3 pl-5">タグ</h5>
+   <h5 class="font-weight-bold pt-3 pl-5">■タグ</h5>
   <div class="pl-5">
     <%= f.text_field :tag_ids, class: "form-control w-50", id:'tag_ids',\
     placeholder: "複数つけるには','で区切ってください。" %>
   </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">カテゴリー</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■カテゴリー</h5>
   <div class="pl-5">
     <%= f.select :is_recruitment, [["加入案件", "加入案件"], ["募集案件","募集案件"]], class: "form-control" %>
   </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">活動場所</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■活動場所</h5>
    <div class="pl-5">
      <%= f.text_field :state %>
     </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">オンラインについて</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■オンラインについて</h5>
    <div class="pl-5">
      <%= f.select :is_online, [["可能", "可能"], ["不可","不可"]], class: "form-control" %>
    </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">活動期間</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■活動期間</h5>
    <div class="pl-5">
      <%= f.select :period, [["期間の定めなし", "期間の定めなし"], ["一ヶ月以内","一ヶ月以内"],["三ヶ月以内", "三ヶ月以内"], ["六ヶ月以内","六ヶ月以内"]], class: "form-control" %>
    </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">ギャラの有無</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■ギャラの有無</h5>
    <div class="pl-5">
      <%= f.select :guarantee, [["なし", "なし"], ["あり","あり"]], class: "form-control" %>
    </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">本文</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■本文</h5>
    <div class="pl-5">
      <%= f.text_area :text, class: "content-area" %>
    </div>
 
-  <h5 class="font-weight-bold pt-3 pl-5">参考用動画・音源</h5>
+  <h5 class="font-weight-bold pt-3 pl-5">■参考用動画・音源</h5>
    <div class="pl-5">
      <%= f.file_field :video %> <br>
    </div>

@@ -1,32 +1,32 @@
 <div class="card-list-containar py-5">
     <div class="card w-50 mx-auto mt-4 shadow-lg bg-secondary">
-      <h1 class="font-weight-bold mx-auto mt-3 ">編集</h1>
+      <h1 class="font-weight-bold mx-auto mt-3 "><i class="fas fa-pen pr-2" style="top:0px"></i>編集</h1>
  <div class="container font-weight-bold pt-3 pl-5">
       <%= form_with model:@post, local:true do |f| %>
 
-        <h4>タイトル</h4>
+        <h4>■タイトル</h4>
         <%= f.text_field :title %>
 
-        <h4>タグ</h4>
+        <h4>■タグ</h4>
         <%= f.text_field :tag_ids,value: @tag_list,\
           placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
 
-        <h4>カテゴリー</h4>
+        <h4>■カテゴリー</h4>
         <%= f.select :is_recruitment, [["加入案件", "加入案件"], ["募集案件","募集案件"]], class: "form-control" %>
 
-        <h4>活動場所</h4>
+        <h4>■活動場所</h4>
         <%= f.text_field :state %>
 
-        <h4>オンラインについて</h4>
+        <h4>■オンラインについて</h4>
         <%= f.select :is_online, [["可能", "可能"], ["不可","不可"]], class: "form-control" %>
 
-        <h4>活動期間</h4>
+        <h4>■活動期間</h4>
         <%= f.select :period, [["期間の定めなし", "期間の定めなし"], ["一ヶ月以内","一ヶ月以内"],["三ヶ月以内", "三ヶ月以内"], ["六ヶ月以内","六ヶ月以内"]], class: "form-control" %>
 
-        <h4>ギャラの有無</h4>
+        <h4>■ギャラの有無</h4>
         <%= f.select :guarantee, [["なし", "なし"], ["あり","あり"]], class: "form-control" %>
 
-        <h4>本文</h4>
+        <h4>■本文</h4>
         <%= f.text_area :text %>
         </div>
 

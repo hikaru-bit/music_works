@@ -56,9 +56,11 @@
               </p>
             </l1>
             <% else %>
+            <i class="fas fa-user"></i>
             <li class="nav-item font-weight-bolder">
               <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
+            <i class="fas fa-sign-out-alt"></i>
             <li class="nav-item font-weight-bolder">
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
             </li>
